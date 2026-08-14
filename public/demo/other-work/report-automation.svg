@@ -1,0 +1,41 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" font-family="ui-sans-serif, system-ui, sans-serif">
+  <rect width="800" height="600" fill="#eef1f0" />
+
+  <!-- BigQuery-ish database icon -->
+  <g>
+    <ellipse cx="150" cy="220" rx="70" ry="24" fill="#0f6b5c" />
+    <rect x="80" y="220" width="140" height="90" fill="#0f6b5c" opacity="0.9" />
+    <ellipse cx="150" cy="310" rx="70" ry="24" fill="#0b5347" />
+    <ellipse cx="150" cy="220" rx="70" ry="24" fill="#0f6b5c" stroke="#0b5347" stroke-width="2" />
+    <text x="150" y="380" font-size="15" fill="#17181a" text-anchor="middle" font-family="ui-monospace, monospace">BigQuery</text>
+  </g>
+
+  <g stroke="#8a8d92" stroke-width="3" fill="none">
+    <line x1="250" y1="260" x2="330" y2="260" />
+    <path d="M320 250 L334 260 L320 270" />
+  </g>
+
+  <!-- automation gear -->
+  <g transform="translate(400,225)">
+    <circle r="46" fill="#ffffff" stroke="#0f6b5c" stroke-width="4" />
+    <circle r="16" fill="#0f6b5c" />
+    <line x1="46" y1="0" x2="60" y2="0" stroke="#0f6b5c" stroke-width="8" stroke-linecap="round" /><line x1="32.526911934581186" y1="32.526911934581186" x2="42.42640687119285" y2="42.426406871192846" stroke="#0f6b5c" stroke-width="8" stroke-linecap="round" /><line x1="2.8166876380389124e-15" y1="46" x2="3.67394039744206e-15" y2="60" stroke="#0f6b5c" stroke-width="8" stroke-linecap="round" /><line x1="-32.526911934581186" y1="32.526911934581186" x2="-42.426406871192846" y2="42.42640687119285" stroke="#0f6b5c" stroke-width="8" stroke-linecap="round" /><line x1="-46" y1="5.633375276077825e-15" x2="-60" y2="7.34788079488412e-15" stroke="#0f6b5c" stroke-width="8" stroke-linecap="round" /><line x1="-32.52691193458119" y1="-32.526911934581186" x2="-42.42640687119286" y2="-42.426406871192846" stroke="#0f6b5c" stroke-width="8" stroke-linecap="round" /><line x1="-8.450062914116736e-15" y1="-46" x2="-1.1021821192326178e-14" y2="-60" stroke="#0f6b5c" stroke-width="8" stroke-linecap="round" /><line x1="32.52691193458118" y1="-32.52691193458119" x2="42.42640687119284" y2="-42.42640687119286" stroke="#0f6b5c" stroke-width="8" stroke-linecap="round" />
+  </g>
+  <text x="400" y="310" font-size="15" fill="#17181a" text-anchor="middle" font-family="ui-monospace, monospace">scheduled script</text>
+
+  <g stroke="#8a8d92" stroke-width="3" fill="none">
+    <line x1="470" y1="260" x2="550" y2="260" />
+    <path d="M540 250 L554 260 L540 270" />
+  </g>
+
+  <!-- spreadsheet -->
+  <g>
+    <rect x="580" y="170" width="160" height="120" rx="8" fill="#ffffff" stroke="#c9c6bc" stroke-width="2" />
+    <line x1="580" y1="170" x2="740" y2="170" stroke="#e3e1da" stroke-width="1.5" /><line x1="580" y1="200" x2="740" y2="200" stroke="#e3e1da" stroke-width="1.5" /><line x1="580" y1="230" x2="740" y2="230" stroke="#e3e1da" stroke-width="1.5" /><line x1="580" y1="260" x2="740" y2="260" stroke="#e3e1da" stroke-width="1.5" />
+    <line x1="580" y1="170" x2="580" y2="290" stroke="#e3e1da" stroke-width="1.5" /><line x1="620" y1="170" x2="620" y2="290" stroke="#e3e1da" stroke-width="1.5" /><line x1="660" y1="170" x2="660" y2="290" stroke="#e3e1da" stroke-width="1.5" /><line x1="700" y1="170" x2="700" y2="290" stroke="#e3e1da" stroke-width="1.5" /><line x1="740" y1="170" x2="740" y2="290" stroke="#e3e1da" stroke-width="1.5" />
+    <rect x="590" y="200" width="24" height="70" fill="#0f6b5c" opacity="0.35" />
+    <rect x="630" y="220" width="24" height="50" fill="#0f6b5c" opacity="0.55" />
+    <rect x="670" y="185" width="24" height="85" fill="#0f6b5c" opacity="0.75" />
+  </g>
+  <text x="660" y="330" font-size="15" fill="#17181a" text-anchor="middle" font-family="ui-monospace, monospace">Excel / Sheets report</text>
+</svg>

@@ -1,0 +1,208 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Tag from "../../components/ui/Tag.astro";
+import VisionKpiDemo from "../../components/islands/VisionKpiDemo.tsx";
+
+const stack = ["YOLOv11", "Computer Vision", "Python", "OpenCV", "KPI Scoring"];
+---
+
+<BaseLayout
+  title="This AI Reads a Freezer Photo and Tells You What's Wrong"
+  description="A YOLO model reads a single freezer photo and scores planogram compliance — run it live on eight real store photos."
+>
+  <article class="mx-auto max-w-3xl px-6 pt-16 pb-28">
+    <p class="label-mono mb-4">Case study</p>
+    <h1 class="text-3xl md:text-5xl font-medium tracking-tight">This AI Reads a Freezer Photo and Tells You What's Wrong</h1>
+
+    <p class="text-lg text-ink-muted mt-6 leading-relaxed">
+      Sales reps used to check freezer planogram compliance by eye, store by store. I built a YOLO model that reads
+      a single top-down photo of an ice cream freezer and instantly scores it — how full it is, how tidy it's
+      arranged, and how much of the catalog is on shelf — turning a manual walk-through into a fifteen-second check.
+    </p>
+
+    <div class="flex flex-wrap gap-1.5 mt-6">
+      {stack.map((t) => <Tag>{t}</Tag>)}
+    </div>
+
+    <p class="label-mono mt-16 mb-4">How it works</p>
+    <div class="grid sm:grid-cols-3 gap-4">
+      <div class="p-4 rounded-xl border border-border bg-surface">
+        <div class="w-10 h-10 rounded-full bg-accent-soft text-accent flex items-center justify-center mb-3">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 8h3l2-2h6l2 2h3v11H4V8Z" />
+            <circle cx="12" cy="13.5" r="3.3" />
+          </svg>
+        </div>
+        <p class="label-mono text-ink-faint">Step 1</p>
+        <p class="text-ink font-medium mt-0.5">Snap a photo</p>
+        <p class="text-ink-muted text-sm mt-1.5 leading-relaxed">
+          Sales reps across different regions in Indonesia each take one top-down photo of their freezer right after
+          they finish restocking and tidying it.
+        </p>
+      </div>
+      <div class="p-4 rounded-xl border border-border bg-surface">
+        <div class="w-10 h-10 rounded-full bg-accent-soft text-accent flex items-center justify-center mb-3">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="7" />
+            <circle cx="12" cy="12" r="2.3" fill="currentColor" stroke="none" />
+            <line x1="12" y1="2" x2="12" y2="5" />
+            <line x1="12" y1="19" x2="12" y2="22" />
+            <line x1="2" y1="12" x2="5" y2="12" />
+            <line x1="19" y1="12" x2="22" y2="12" />
+          </svg>
+        </div>
+        <p class="label-mono text-ink-faint">Step 2</p>
+        <p class="text-ink font-medium mt-0.5">AI checks it</p>
+        <p class="text-ink-muted text-sm mt-1.5 leading-relaxed">
+          The photo is scored on three metrics: tidiness, ice cream completeness, and how full the shelf is.
+        </p>
+      </div>
+      <div class="p-4 rounded-xl border border-border bg-surface">
+        <div class="w-10 h-10 rounded-full bg-accent-soft text-accent flex items-center justify-center mb-3">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7.5" height="7.5" rx="1.3" />
+            <rect x="13.5" y="3" width="7.5" height="10.5" rx="1.3" />
+            <rect x="3" y="13.5" width="7.5" height="7.5" rx="1.3" />
+            <rect x="13.5" y="16.5" width="7.5" height="4.5" rx="1.3" />
+          </svg>
+        </div>
+        <p class="label-mono text-ink-faint">Step 3</p>
+        <p class="text-ink font-medium mt-0.5">Turns into answers</p>
+        <p class="text-ink-muted text-sm mt-1.5 leading-relaxed">
+          Scored across many stores, it shows which areas need a re-visit, which run empty, and which SKU is the
+          local best-seller (judged by how often it's out of stock).
+        </p>
+      </div>
+    </div>
+
+    <p class="label-mono mt-16 mb-6">Live detection demo</p>
+    <VisionKpiDemo client:load />
+
+    <p class="label-mono mt-16 mb-6">Business impact</p>
+
+    <div class="grid grid-cols-3 gap-3">
+      <div class="p-4 rounded-xl border border-border bg-surface">
+        <p class="font-mono text-xl md:text-2xl font-medium text-accent">~96%</p>
+        <p class="label-mono mt-1">Faster per check</p>
+      </div>
+      <div class="p-4 rounded-xl border border-border bg-surface">
+        <p class="font-mono text-xl md:text-2xl font-medium text-accent">~8 FTE</p>
+        <p class="label-mono mt-1">Rep time freed / month</p>
+      </div>
+      <div class="p-4 rounded-xl border border-border bg-surface">
+        <p class="font-mono text-xl md:text-2xl font-medium text-ink">~Rp 3jt</p>
+        <p class="label-mono mt-1">Infra cost / month</p>
+      </div>
+    </div>
+
+    <p class="text-ink-muted mt-8 leading-relaxed">
+      A single photo, scored automatically, turns into three things a sales or trade-marketing manager actually
+      needs to act on:
+    </p>
+    <div class="mt-4 space-y-3">
+      <div class="flex gap-4 p-4 rounded-xl border border-border border-l-4 border-l-accent bg-surface">
+        <div class="shrink-0 w-9 h-9 rounded-lg bg-accent-soft text-accent flex items-center justify-center">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z" />
+            <circle cx="12" cy="10" r="2.5" />
+          </svg>
+        </div>
+        <p class="text-ink-muted leading-relaxed">
+          <span class="text-ink font-medium">Where execution is falling behind.</span> The tidiness score flags
+          exactly which stores or areas have messy shelf execution, so an area manager knows where to send a
+          re-visit or coaching — instead of relying on a rep's self-reported notes.
+        </p>
+      </div>
+      <div class="flex gap-4 p-4 rounded-xl border border-border border-l-4 border-l-warn bg-surface">
+        <div class="shrink-0 w-9 h-9 rounded-lg bg-warn-soft text-warn flex items-center justify-center">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 8 12 3 3 8v8l9 5 9-5V8Z" />
+            <path d="M3 8l9 5 9-5" />
+            <path d="M12 13v8" />
+          </svg>
+        </div>
+        <p class="text-ink-muted leading-relaxed">
+          <span class="text-ink font-medium">Which stores need restocking, right now.</span> The fullness score and
+          empty-slot count show which stores are running low and need urgent restocking, and confirm which have
+          already been replenished — without waiting on a phone call from the field.
+        </p>
+      </div>
+      <div class="flex gap-4 p-4 rounded-xl border border-border border-l-4 border-l-accent bg-surface">
+        <div class="shrink-0 w-9 h-9 rounded-lg bg-accent-soft text-accent flex items-center justify-center">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="3 17 9 11 13 15 21 7" />
+            <polyline points="15 7 21 7 21 13" />
+          </svg>
+        </div>
+        <p class="text-ink-muted leading-relaxed">
+          <span class="text-ink font-medium">Which SKUs are actually selling, by area.</span> Run the same audit on
+          repeat visits and track how fast each SKU disappears from the shelf — the fastest-depleting SKUs per
+          region reveal local best-sellers, useful for demand-driven allocation even in outlets with no POS
+          integration.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-8 p-5 rounded-xl border border-border bg-surface">
+      <p class="label-mono mb-3">Illustrative ROI model</p>
+      <p class="text-sm text-ink-muted leading-relaxed">
+        Rough numbers below — not real figures from any specific company, just a back-of-envelope model sized for
+        an FMCG operator running a comparable freezer network, so the reasoning can be checked and adjusted:
+      </p>
+      <div class="mt-4 text-sm text-ink-muted leading-relaxed space-y-1.5 font-mono">
+        <p>7,000 freezers × 2 visits/month = 14,000 checks/month</p>
+        <p>Manual check ≈ 6 min · photo-based check ≈ 15 sec → 5.75 min saved/check</p>
+        <p>14,000 × 5.75 min ≈ 1,340 hours/month freed ≈ <span class="text-ink">8 reps' worth of time</span></p>
+        <p>At an assumed Rp 28,000/hour fully-loaded rep cost → <span class="text-ink">~Rp 37.5jt/month</span></p>
+      </div>
+      <p class="text-sm text-ink-muted leading-relaxed mt-4">
+        That's capacity, not guaranteed profit — it can be redirected to more selling time, or to covering more
+        outlets without adding headcount. There's a second lever this doesn't price in: industry research puts
+        typical stockout losses at roughly 4% of category sales; catching empty shelves faster and more often should
+        recover some share of that. I don't have this company's real per-outlet revenue to size it, but the formula
+        is: <span class="font-mono text-ink">stockout-days avoided ÷ total days × daily category revenue × outlet count</span>.
+      </p>
+    </div>
+
+    <p class="text-sm text-ink-muted leading-relaxed mt-6">
+      The whole thing runs on one CPU server with 32GB RAM — YOLO's inference footprint is light enough that no GPU
+      cluster or per-image API fees are needed. A comparable cloud VM (8 vCPU / 32GB RAM) runs roughly
+      Rp 2.4–4 million/month from any mainstream provider.
+    </p>
+
+    <details class="mt-16 group">
+      <summary class="label-mono cursor-pointer list-none flex items-center gap-2">
+        <span class="inline-block transition-transform group-open:rotate-90">›</span>
+        How it works (technical)
+      </summary>
+      <div class="text-ink-muted space-y-4 leading-relaxed mt-4 text-sm">
+        <p>
+          Detection runs in two stages: a compartment-detection pass finds each shelf slot and classifies it
+          (full &amp; tidy, full &amp; untidy, partial, empty, frost-covered, or no case), then a SKU-detection pass
+          identifies individual products inside the filled slots. Three scores are derived directly from those
+          detections — no manual review step:
+        </p>
+        <ul class="list-disc pl-5 space-y-1.5">
+          <li><span class="font-mono text-ink">Fullness</span> — (full slots × 1.0 + partial slots × 0.5) / total valid slots</li>
+          <li><span class="font-mono text-ink">Tidiness</span> — tidy filled slots / total filled slots</li>
+          <li><span class="font-mono text-ink">Completeness</span> — unique SKUs detected / total SKUs in the model's catalog</li>
+        </ul>
+        <p>
+          Results in the demo above are precomputed so it stays fast and consistent for every visitor — no GPU
+          inference happening in your browser or on this server. The "running detection" step is a fixed animation
+          standing in for what inference looks like in the actual field tool.
+        </p>
+      </div>
+    </details>
+
+    <p class="label-mono mt-16 mb-4">Data &amp; privacy</p>
+    <div class="text-sm text-ink-muted leading-relaxed p-4 rounded-xl border border-dashed border-border">
+      <p>
+        The freezer photos on this page are real, but every image has been censored before publishing: SKU/product
+        labels are masked in the annotated images, and the original filenames — which contained internal store and
+        visit identifiers — were stripped and replaced with generic labels. Nothing shown here exposes the source
+        company's confidential business data.
+      </p>
+    </div>
+  </article>
+</BaseLayout>

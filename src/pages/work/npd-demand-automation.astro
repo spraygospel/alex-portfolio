@@ -1,0 +1,191 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Tag from "../../components/ui/Tag.astro";
+
+const stack = ["Python", "BigQuery", "Google Sheets API", "LLM Agent", "SAP"];
+---
+
+<BaseLayout
+  title="This AI Catches Underperforming New Product Launches Before SCM Has To"
+  description="A pipeline that pulls demand data from BigQuery (sourced from SAP), fills in a Google Sheet using the Supply Chain team's own formula, and lets anyone ask an AI bot which new product launches are falling behind."
+>
+  <article class="mx-auto max-w-3xl px-6 pt-16 pb-28">
+    <p class="label-mono mb-4">Minor project</p>
+    <h1 class="text-3xl md:text-5xl font-medium tracking-tight">
+      This AI Catches Underperforming New Product Launches Before SCM Has To
+    </h1>
+
+    <p class="text-lg text-ink-muted mt-6 leading-relaxed">
+      Every new product launch (NPD, short for New Product Development) needs its demand forecast calculated, then
+      tracked against real sales for its first two months on shelf. The Supply Chain (SCM) team used to do this by
+      hand in Excel — pull the numbers, apply the formula, update the sheet, repeat for every SKU, every month, with
+      dozens of launches running at once. I automated the pipeline end to end: a script pulls the source data from
+      BigQuery (sourced from SAP) and fills in the demand numbers straight into a Google Sheet using SCM's own
+      formula. Then, because dozens of live launches means dozens of rows to scan for the ones going wrong, I
+      connected an AI bot that can just be asked — in plain language — which ones are underperforming right now.
+    </p>
+
+    <div class="flex flex-wrap gap-1.5 mt-6">
+      {stack.map((t) => <Tag>{t}</Tag>)}
+    </div>
+
+    <div class="mt-10 p-4 rounded-xl border border-danger/40 bg-danger-soft">
+      <p class="label-mono text-danger mb-2">⚠ Sensitive data notice</p>
+      <p class="text-sm text-ink-muted leading-relaxed">
+        Every screenshot below is from the real, live system — but product names, Material IDs, and product codes
+        are internal SAP identifiers tied to a live, confidential catalog, and have been blocked out before
+        publishing. What's left visible is the calculation logic and demand figures, shown to explain how the
+        system works, not to disclose any specific product's numbers.
+      </p>
+    </div>
+
+    <p class="label-mono mt-16 mb-4">Act 1 — from formula to spreadsheet, automatically</p>
+    <p class="text-ink-muted leading-relaxed">
+      The sheet tracks every new product from its initial demand estimate (<span class="font-mono text-ink">Estimasi
+      NPD</span>) through its first two active months on shelf. Product identity — name, brand, Material ID, product
+      code, location — sits on the left; the redacted blocks below are exactly where that identity would be.
+    </p>
+
+    <div class="mt-6 rounded-xl overflow-hidden border border-border bg-surface">
+      <img
+        src="/demo/npd-automation/sheet-left.png"
+        alt="Automated Google Sheet showing NPD demand-tracking columns, with product name, brand, and Material ID redacted"
+        class="w-full h-auto"
+        loading="lazy"
+      />
+    </div>
+    <p class="text-xs text-ink-faint mt-2">
+      Left side of the sheet: product identity (redacted) and the initial demand estimate, filled in automatically.
+    </p>
+
+    <p class="text-ink-muted leading-relaxed mt-8">
+      Scroll right on the same sheet and the identity columns are gone — this half is pure tracking. Actual demand
+      in month one (<span class="font-mono text-ink">Demand M1</span>) is compared against the original estimate as
+      a percentage; the same happens again in month two against a repeat-purchase target SCM sets. A <span class="font-mono text-ink">Status</span> column — <span class="font-mono text-ink">PRE-M1</span>, <span class="font-mono text-ink">M1 AKTIF</span>, <span class="font-mono text-ink">M2 AKTIF</span>, or <span class="font-mono text-ink">SO Belum Terdeteksi</span> ("sales
+      order not yet detected") — is derived automatically too, so no one has to remember which stage each of
+      forty-plus launches is in.
+    </p>
+
+    <div class="mt-6 rounded-xl overflow-hidden border border-border bg-surface">
+      <img
+        src="/demo/npd-automation/sheet-right.png"
+        alt="Right side of the same Google Sheet showing Demand M1, Demand M2, percent-vs-estimate columns, and an automatically derived lifecycle Status column"
+        class="w-full h-auto"
+        loading="lazy"
+      />
+    </div>
+    <p class="text-xs text-ink-faint mt-2">
+      Right side: month-1 and month-2 actuals vs. estimate, and the auto-derived lifecycle status per product.
+    </p>
+
+    <p class="label-mono mt-16 mb-4">Act 2 — ask it directly, in plain language</p>
+    <p class="text-ink-muted leading-relaxed">
+      An accurate sheet still isn't the same as an answer. With forty-plus launches live at once, someone still has
+      to scroll the whole thing to find which ones are actually struggling. So the same data sits behind a chat bot:
+      ask it a question, and it filters, aggregates, and ranks the sheet itself instead of a person doing it by eye.
+    </p>
+
+    <div class="mt-6 rounded-xl overflow-hidden border border-border bg-surface max-w-md mx-auto">
+      <img
+        src="/demo/npd-automation/bot-analysis.png"
+        alt="Chat bot response analyzing the 5 worst-performing completed products by month-1 demand, with product identities redacted"
+        class="w-full h-auto"
+        loading="lazy"
+      />
+    </div>
+    <p class="text-xs text-ink-faint mt-2 text-center">
+      Asked for the 5 worst SELESAI (completed) products — the bot filters, ranks, and summarizes on its own.
+    </p>
+
+    <p class="text-ink-muted leading-relaxed mt-8">
+      That single answer is doing more than a lookup: it filtered forty products down to only the completed ones,
+      ranked them by month-1 performance, named the worst performer, and then flagged a pattern a quick glance would
+      miss — 28 of those "completed" products still show month-2 demand above 100% of estimate, meaning a finished
+      status doesn't mean repeat demand tapered off. That's the kind of cross-check SCM used to have to go looking
+      for.
+    </p>
+
+    <p class="label-mono mt-16 mb-6">Business impact</p>
+
+    <div class="grid grid-cols-3 gap-3">
+      <div class="p-4 rounded-xl border border-border bg-surface">
+        <p class="font-mono text-xl md:text-2xl font-medium text-accent">No manual Excel</p>
+        <p class="label-mono mt-1">Formula runs itself, monthly</p>
+      </div>
+      <div class="p-4 rounded-xl border border-border bg-surface">
+        <p class="font-mono text-xl md:text-2xl font-medium text-accent">Same formula, every time</p>
+        <p class="label-mono mt-1">No copy-paste or transcription slips</p>
+      </div>
+      <div class="p-4 rounded-xl border border-border bg-surface">
+        <p class="font-mono text-xl md:text-2xl font-medium text-ink">Ask, don't scroll</p>
+        <p class="label-mono mt-1">Scales past 40+ live launches</p>
+      </div>
+    </div>
+
+    <div class="mt-4 space-y-3">
+      <div class="flex gap-4 p-4 rounded-xl border border-border border-l-4 border-l-accent bg-surface">
+        <div class="shrink-0 w-9 h-9 rounded-lg bg-accent-soft text-accent flex items-center justify-center">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9" />
+            <polyline points="12 7 12 12 15.5 13.5" />
+          </svg>
+        </div>
+        <p class="text-ink-muted leading-relaxed">
+          <span class="text-ink font-medium">Gives SCM their time back.</span> No one has to hand-update a formula
+          across dozens of rows every month anymore — the sheet fills itself in on schedule, straight from source
+          data.
+        </p>
+      </div>
+      <div class="flex gap-4 p-4 rounded-xl border border-border border-l-4 border-l-accent bg-surface">
+        <div class="shrink-0 w-9 h-9 rounded-lg bg-accent-soft text-accent flex items-center justify-center">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3Z" />
+            <polyline points="9 12 11 14 15 9" />
+          </svg>
+        </div>
+        <p class="text-ink-muted leading-relaxed">
+          <span class="text-ink font-medium">Makes the calculation more accurate, not just faster.</span> The exact
+          formula SCM specified runs the same way on every row, every month — no manual transcription error, no
+          version of the sheet quietly drifting from the agreed method.
+        </p>
+      </div>
+      <div class="flex gap-4 p-4 rounded-xl border border-border border-l-4 border-l-warn bg-surface">
+        <div class="shrink-0 w-9 h-9 rounded-lg bg-warn-soft text-warn flex items-center justify-center">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16v12H9l-5 4V4Z" />
+            <line x1="8" y1="9" x2="16" y2="9" />
+            <line x1="8" y1="12.5" x2="13" y2="12.5" />
+          </svg>
+        </div>
+        <p class="text-ink-muted leading-relaxed">
+          <span class="text-ink font-medium">Keeps working as launch volume grows.</span> A bigger NPD pipeline used
+          to mean more rows for someone to scan by eye. Now it just means more rows the bot can filter — the
+          question stays just as fast to ask.
+        </p>
+      </div>
+    </div>
+
+    <details class="mt-16 group">
+      <summary class="label-mono cursor-pointer list-none flex items-center gap-2">
+        <span class="inline-block transition-transform group-open:rotate-90">›</span>
+        How it works (technical)
+      </summary>
+      <div class="text-ink-muted space-y-4 leading-relaxed mt-6 text-sm">
+        <p>
+          A scheduled script queries BigQuery — which mirrors the underlying SAP data — for each new product's sales
+          orders, then computes the estimate and month-1/month-2 actuals using the formula SCM specified, and writes
+          the results into the tracking sheet through the Google Sheets API. The lifecycle <span class="font-mono text-ink">Status</span> is
+          derived from the same write, not set by hand: it's a function of which dates and sales-order records are
+          present for that row on a given run.
+        </p>
+        <p>
+          The chat layer reads the same sheet rather than a separate copy of the data, so it's never out of sync
+          with what a human would see by opening it directly. A query like "5 worst products, SELESAI status only"
+          gets parsed into a filter and an aggregation over that data — not a canned report — which is what lets it
+          answer a follow-up like the M2-over-100% pattern without that being a report anyone had to think to build
+          in advance.
+        </p>
+      </div>
+    </details>
+  </article>
+</BaseLayout>

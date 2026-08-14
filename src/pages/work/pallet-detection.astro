@@ -1,0 +1,184 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Tag from "../../components/ui/Tag.astro";
+
+const stack = ["YOLO", "Computer Vision", "Real-time Detection", "RTSP/CCTV", "Python"];
+---
+
+<BaseLayout
+  title="This AI Stops Half-Empty Pallets at the Warehouse Door"
+  description="A YOLO model watches the warehouse entry point through an existing CCTV feed, classifies every pallet as full or not-full in real time, and alarms before an incomplete one gets counted as stock."
+>
+  <article class="mx-auto max-w-3xl px-6 pt-16 pb-28">
+    <p class="label-mono mb-4">Minor project</p>
+    <h1 class="text-3xl md:text-5xl font-medium tracking-tight">
+      This AI Stops Half-Empty Pallets at the Warehouse Door
+    </h1>
+
+    <p class="text-lg text-ink-muted mt-6 leading-relaxed">
+      Every pallet stack that rolls into the warehouse is supposed to be full — that's what the stock count assumes.
+      If a not-quite-full stack slips in unnoticed, the numbers stop matching reality: the next stock opname comes
+      up short, and if it's an order already promised to a customer — say 100 boxes requested, 98 actually
+      shipped — that mismatch becomes a complaint. I built a computer vision model on top of an existing CCTV
+      camera that watches the warehouse entrance, classifies every pallet as full or not-full in real time, and
+      raises an alarm the moment an incomplete one crosses the line into the warehouse — before it's ever counted
+      as stock.
+    </p>
+
+    <div class="flex flex-wrap gap-1.5 mt-6">
+      {stack.map((t) => <Tag>{t}</Tag>)}
+    </div>
+
+    <!-- Video demo -->
+    <div class="mt-12 rounded-2xl overflow-hidden border border-border bg-surface">
+      <video
+        class="w-full h-auto block"
+        poster="/video/pallet-poster.jpg"
+        controls
+        preload="none"
+        playsinline
+      >
+        <source src="/video/pallet-demo.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <p class="text-xs text-ink-faint mt-2">
+      Live CCTV feed with the detector running on top, unedited. No audio in the original recording.
+    </p>
+
+    <p class="label-mono mt-16 mb-4">What the camera is actually doing</p>
+    <div class="mt-4 space-y-3">
+      <div class="flex gap-4 p-4 rounded-xl border border-border border-l-4 border-l-accent bg-surface">
+        <div class="shrink-0 w-9 h-9 rounded-lg bg-accent-soft text-accent flex items-center justify-center">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="14" rx="2" />
+            <path d="M3 9h18" />
+          </svg>
+        </div>
+        <p class="text-ink-muted leading-relaxed">
+          <span class="text-ink font-medium">Every stack gets a label, live.</span> Each pallet in frame is boxed
+          and tagged <span class="font-mono text-ink">pallet_full</span> or <span class="font-mono text-ink">pallet_not_full</span> with a
+          confidence score, refreshed every frame — whether it's sitting in the staging area or moving on a
+          forklift.
+        </p>
+      </div>
+      <div class="flex gap-4 p-4 rounded-xl border border-border border-l-4 border-l-accent bg-surface">
+        <div class="shrink-0 w-9 h-9 rounded-lg bg-accent-soft text-accent flex items-center justify-center">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="20" x2="19" y2="4" stroke-dasharray="3 3" />
+            <circle cx="5" cy="20" r="1.6" fill="currentColor" stroke="none" />
+            <circle cx="19" cy="4" r="1.6" fill="currentColor" stroke="none" />
+          </svg>
+        </div>
+        <p class="text-ink-muted leading-relaxed">
+          <span class="text-ink font-medium">The diagonal line is the warehouse boundary.</span> It's not part of
+          the camera image — it's drawn in by the system to mark where "still on the floor" ends and "now it's
+          warehouse stock" begins.
+        </p>
+      </div>
+      <div class="flex gap-4 p-4 rounded-xl border border-border border-l-4 border-l-warn bg-surface">
+        <div class="shrink-0 w-9 h-9 rounded-lg bg-warn-soft text-warn flex items-center justify-center">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3 2 20h20L12 3Z" />
+            <line x1="12" y1="10" x2="12" y2="14.5" />
+            <circle cx="12" cy="17.3" r="0.6" fill="currentColor" stroke="none" />
+          </svg>
+        </div>
+        <p class="text-ink-muted leading-relaxed">
+          <span class="text-ink font-medium">Crossing it is the trigger.</span> The <span class="font-mono text-ink">Captured</span> counter
+          in the corner logs every pallet that crosses into the warehouse. If the one crossing is tagged <span class="font-mono text-ink">not_full</span>, that
+          same crossing fires an alarm and pushes an alert to the shift supervisor — before it's logged as stock.
+        </p>
+      </div>
+    </div>
+
+    <p class="label-mono mt-16 mb-6">Business impact</p>
+
+    <div class="grid grid-cols-3 gap-3">
+      <div class="p-4 rounded-xl border border-border bg-surface">
+        <p class="font-mono text-xl md:text-2xl font-medium text-accent">Real-time</p>
+        <p class="label-mono mt-1">Every pallet, every crossing</p>
+      </div>
+      <div class="p-4 rounded-xl border border-border bg-surface">
+        <p class="font-mono text-xl md:text-2xl font-medium text-accent">Before it's stock</p>
+        <p class="label-mono mt-1">Caught at the door, not at count</p>
+      </div>
+      <div class="p-4 rounded-xl border border-border bg-surface">
+        <p class="font-mono text-xl md:text-2xl font-medium text-ink">Existing camera</p>
+        <p class="label-mono mt-1">No new hardware to install</p>
+      </div>
+    </div>
+
+    <div class="mt-4 space-y-3">
+      <div class="flex gap-4 p-4 rounded-xl border border-border border-l-4 border-l-accent bg-surface">
+        <div class="shrink-0 w-9 h-9 rounded-lg bg-accent-soft text-accent flex items-center justify-center">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="10" cy="10" r="6.5" />
+            <line x1="15" y1="15" x2="20.5" y2="20.5" />
+          </svg>
+        </div>
+        <p class="text-ink-muted leading-relaxed">
+          <span class="text-ink font-medium">Keeps the stock count honest.</span> An incomplete pallet that gets
+          waved through doesn't announce itself — it just quietly shows up as a shortage the next time someone runs
+          a stock opname, with no record of when or why.
+        </p>
+      </div>
+      <div class="flex gap-4 p-4 rounded-xl border border-border border-l-4 border-l-warn bg-surface">
+        <div class="shrink-0 w-9 h-9 rounded-lg bg-warn-soft text-warn flex items-center justify-center">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 8 12 3 3 8v8l9 5 9-5V8Z" />
+            <path d="M3 8l9 5 9-5" />
+            <path d="M12 13v8" />
+          </svg>
+        </div>
+        <p class="text-ink-muted leading-relaxed">
+          <span class="text-ink font-medium">Stops a shortage before it reaches a customer.</span> The scenario
+          that actually costs a relationship: 100 boxes ordered, 98 boxes shipped because one pallet in the chain
+          was short. Catching it at the warehouse door is a lot cheaper than catching it in a complaint.
+        </p>
+      </div>
+      <div class="flex gap-4 p-4 rounded-xl border border-border border-l-4 border-l-accent bg-surface">
+        <div class="shrink-0 w-9 h-9 rounded-lg bg-accent-soft text-accent flex items-center justify-center">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
+            <circle cx="12" cy="12" r="3" />
+          </svg>
+        </div>
+        <p class="text-ink-muted leading-relaxed">
+          <span class="text-ink font-medium">Doesn't depend on someone watching.</span> No supervisor can stand at
+          the entrance all shift, every shift. The camera already can — this just gives it something to look for.
+        </p>
+      </div>
+    </div>
+
+    <details class="mt-16 group">
+      <summary class="label-mono cursor-pointer list-none flex items-center gap-2">
+        <span class="inline-block transition-transform group-open:rotate-90">›</span>
+        How it works (technical)
+      </summary>
+      <div class="text-ink-muted space-y-4 leading-relaxed mt-6 text-sm">
+        <p>
+          A YOLO model trained on two classes — <span class="font-mono text-ink">pallet_full</span> and <span class="font-mono text-ink">pallet_not_full</span> —
+          runs on the existing CCTV RTSP stream, no extra camera hardware needed. Fullness is learned from the
+          visual pattern of a complete stack versus a partially-stacked one, not from a fixed count, so it
+          generalizes across different SKUs and pallet configurations.
+        </p>
+        <p>
+          The warehouse boundary is a line defined once in the camera's coordinate space. Each tracked pallet's
+          position is checked against that line frame to frame; a crossing event fires when a box's centroid moves
+          from one side to the other. If the class attached to that box at the moment of crossing is <span class="font-mono text-ink">not_full</span>,
+          the event branches into an alarm and a push notification to the shift supervisor instead of just
+          incrementing the pass-through counter.
+        </p>
+      </div>
+    </details>
+
+    <p class="label-mono mt-16 mb-4">Data &amp; privacy</p>
+    <div class="text-sm text-ink-muted leading-relaxed p-4 rounded-xl border border-dashed border-border">
+      <p>
+        This is real, unedited CCTV footage from an active warehouse floor — the system watches pallets, not
+        people. Workers and forklift operators are visible going about normal work at a distance the camera was
+        already recording at; nothing here was staged or captured for this write-up specifically.
+      </p>
+    </div>
+  </article>
+</BaseLayout>

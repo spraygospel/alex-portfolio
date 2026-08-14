@@ -1,0 +1,13 @@
+---
+interface Props {
+  variant?: "default" | "accent";
+  class?: string;
+}
+
+const { variant = "default", class: className = "" } = Astro.props;
+const accentClasses = variant === "accent" ? "border-accent text-accent" : "";
+---
+
+<span class:list={["tag-pill", accentClasses, className]}>
+  <slot />
+</span>

@@ -1,0 +1,43 @@
+---
+import Card from "./Card.astro";
+import Tag from "./Tag.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  href?: string;
+  tags: string[];
+  imageSrc: string;
+  imageAlt: string;
+  featured?: boolean;
+}
+
+const { title, description, href, tags, imageSrc, imageAlt, featured = false } = Astro.props;
+---
+
+<Card href={href} class="overflow-hidden group">
+  <div class:list={["overflow-hidden bg-paper", featured ? "aspect-video" : "aspect-[4/3]"]}>
+    <img
+      src={imageSrc}
+      alt={imageAlt}
+      loading="lazy"
+      decoding="async"
+      class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+    />
+  </div>
+  <div class:list={["p-6", featured && "md:p-8"]}>
+    <h3 class:list={["font-medium text-ink", featured ? "text-xl md:text-2xl" : "text-lg"]}>{title}</h3>
+    <p class="text-ink-muted mt-2 text-sm leading-relaxed">{description}</p>
+    <div class="flex flex-wrap gap-1.5 mt-4">
+      {tags.map((t) => <Tag>{t}</Tag>)}
+    </div>
+    {
+      href && (
+        <p class="text-sm text-accent font-medium mt-4 inline-flex items-center gap-1">
+          View case study
+          <span class="transition-transform group-hover:translate-x-0.5">→</span>
+        </p>
+      )
+    }
+  </div>
+</Card>

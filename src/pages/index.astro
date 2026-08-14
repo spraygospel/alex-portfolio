@@ -1,0 +1,126 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/ui/Button.astro";
+import Tag from "../components/ui/Tag.astro";
+import StatTile from "../components/ui/StatTile.astro";
+import ProjectCard from "../components/ui/ProjectCard.astro";
+import { SITE } from "../data/site";
+import { SKILL_GROUPS } from "../data/skills";
+import { FEATURED_WORK, OTHER_WORK } from "../data/projects";
+---
+
+<BaseLayout
+  title="Home"
+  description="AI Engineer specializing in computer vision and data automation, with production experience at a major FMCG company. Open to relocating to Malaysia."
+>
+  <!-- Hero banner -->
+  <section class="relative w-full overflow-hidden bg-ink">
+    <img
+      src="/hero-banner.jpg"
+      alt=""
+      class="absolute inset-0 w-full h-full object-cover object-[100%_35%]"
+    />
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-black from-55% to-transparent"
+    ></div>
+    <div class="relative mx-auto max-w-6xl px-6 py-16 sm:py-20 md:py-28">
+      <p class="font-mono text-xs tracking-wide text-white/75 bg-white/10 border border-white/20 rounded-md px-2.5 py-1 w-fit mb-6">
+        {SITE.relocation}
+      </p>
+      <h1 class="text-3xl sm:text-4xl md:text-6xl font-medium tracking-tight text-white max-w-xs sm:max-w-lg md:max-w-3xl">
+        AI systems that work on the factory floor, not just in a notebook.
+      </h1>
+      <p class="text-white/75 text-base sm:text-lg mt-6 max-w-xs sm:max-w-md md:max-w-2xl leading-relaxed">
+        I'm {SITE.name}, an AI engineer who builds computer vision and LLM-agent systems and ships them into real
+        operations — from freezer audits on a retail floor to an AI agent that answers questions straight from a live
+        ERP database.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-8">
+        <a
+          href={SITE.resumeUrl}
+          download
+          class="inline-flex items-center gap-2 rounded-lg font-medium transition-colors text-sm px-5 py-2.5 bg-accent text-white hover:bg-accent-strong"
+        >
+          ↓ Download CV
+        </a>
+        <a
+          href="#featured-work"
+          class="inline-flex items-center gap-2 rounded-lg font-medium transition-colors text-sm px-5 py-2.5 border border-white/35 text-white hover:bg-white/10 hover:border-white/60"
+        >
+          My past experience
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bento stats -->
+  <section class="mx-auto max-w-6xl px-6 pt-10 sm:pt-14 pb-20">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <StatTile value="1 yr" label="Production AI · FMCG" />
+      <StatTile value="2 yrs" label="Focused AI practice" />
+      <StatTile value="92%" label="Best-case shelf compliance" />
+      <StatTile value="Fullstack" label="Idea to deployed product" />
+    </div>
+  </section>
+
+  <!-- Featured work -->
+  <section id="featured-work" class="mx-auto max-w-6xl px-6 pb-24 scroll-mt-20">
+    <p class="label-mono mb-4">Featured work</p>
+    <div class="grid md:grid-cols-2 gap-6">
+      {FEATURED_WORK.map((p) => <ProjectCard featured {...p} />)}
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="mx-auto max-w-6xl px-6 pb-24">
+    <p class="label-mono mb-6">Skills</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6">
+      {
+        SKILL_GROUPS.map((g) => (
+          <div>
+            <p class="text-sm text-ink-muted mb-2.5">{g.group}</p>
+            <div class="flex flex-wrap gap-1.5">
+              {g.items.map((item) => <Tag>{item}</Tag>)}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Other work -->
+  <section class="mx-auto max-w-6xl px-6 pb-24">
+    <p class="label-mono mb-4">Other work</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {OTHER_WORK.map((p) => <ProjectCard {...p} />)}
+    </div>
+  </section>
+
+  <!-- Experience strip -->
+  <section class="mx-auto max-w-6xl px-6 pb-28">
+    <p class="label-mono mb-4">Experience</p>
+    <div class="border-t border-border">
+      <div class="flex flex-col md:flex-row md:items-baseline justify-between py-5 border-b border-border gap-1">
+        <div>
+          <p class="font-medium text-ink">AI Engineer</p>
+          <p class="text-ink-muted text-sm">PT. Wings Surya — Surabaya, Indonesia</p>
+        </div>
+        <p class="label-mono whitespace-nowrap">Sep 2025 — Present</p>
+      </div>
+      <div class="flex flex-col md:flex-row md:items-baseline justify-between py-5 border-b border-border gap-1">
+        <div>
+          <p class="font-medium text-ink">AI Engineer</p>
+          <p class="text-ink-muted text-sm">PT. Visiniaga Mitra Kreasindo</p>
+        </div>
+        <p class="label-mono whitespace-nowrap">Jan 2025 — Aug 2025</p>
+      </div>
+      <div class="flex flex-col md:flex-row md:items-baseline justify-between py-5 border-b border-border gap-1">
+        <div>
+          <p class="font-medium text-ink">B.Eng, Informatics Engineering</p>
+          <p class="text-ink-muted text-sm">Universitas Kristen Petra — 2015 — 2019</p>
+        </div>
+        <Button href="/about" variant="ghost" size="sm">More about me →</Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------
+   Self-hosted fonts (Geist Sans / Geist Mono, variable weight)
+   No external font requests (no Google Fonts CDN).
+--------------------------------------------------------------- */
+@font-face {
+  font-family: "Geist Variable";
+  src: url("/fonts/Geist-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono Variable";
+  src: url("/fonts/GeistMono-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------------------------------------------------------------
+   Theme tokens (Tailwind v4 CSS-first config)
+   Palette: warm neutral paper + deep teal accent.
+   Deliberately not the default Tailwind indigo/violet.
+--------------------------------------------------------------- */
+@theme {
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --color-paper: #f7f6f2;
+  --color-surface: #fffefb;
+  --color-ink: #17181a;
+  --color-ink-muted: #5b5e63;
+  --color-ink-faint: #8a8d92;
+  --color-border: #e3e1da;
+  --color-border-strong: #c9c6bc;
+
+  --color-accent: #0f6b5c;
+  --color-accent-strong: #0b5347;
+  --color-accent-soft: #e3efeb;
+  --color-accent-ink: #0a4038;
+
+  --color-warn: #9a5b12;
+  --color-warn-soft: #f3e6d3;
+
+  --color-danger: #a13c34;
+  --color-danger-soft: #f5ded9;
+}
+
+/* Dark mode: plain CSS custom-property overrides (NOT inside @theme).
+   @theme is a build-time construct that Tailwind flattens into a single
+   :root block, so a @theme nested in @media would just clobber the light
+   values unconditionally. Runtime-conditional values must cascade via a
+   normal :root selector instead. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-paper: #131413;
+    --color-surface: #1b1c1b;
+    --color-ink: #eeece6;
+    --color-ink-muted: #a5a8ac;
+    --color-ink-faint: #797d82;
+    --color-border: #2b2c2b;
+    --color-border-strong: #3c3d3b;
+
+    --color-accent: #3fcbac;
+    --color-accent-strong: #5fe0c2;
+    --color-accent-soft: #16332c;
+    --color-accent-ink: #b6f0e0;
+
+    --color-warn: #e0a24f;
+    --color-warn-soft: #3a2c14;
+
+    --color-danger: #e2766c;
+    --color-danger-soft: #3a2019;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Base
+--------------------------------------------------------------- */
+html {
+  color-scheme: light dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent-ink);
+}
+
+/* ---------------------------------------------------------------
+   Reusable component classes
+--------------------------------------------------------------- */
+.tag-pill {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.02em;
+  color: var(--color-ink-muted);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 0.35rem;
+  padding: 0.2rem 0.55rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-ink-faint);
+}
+
+@keyframes scan-line {
+  0% {
+    top: 0%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+.scan-line {
+  animation: scan-line 1.6s ease-in-out infinite alternate;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

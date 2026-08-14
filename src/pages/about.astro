@@ -1,0 +1,100 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/ui/Button.astro";
+import { SITE } from "../data/site";
+---
+
+<BaseLayout title="About" description={`About ${SITE.name} — ${SITE.role}.`}>
+  <section class="mx-auto max-w-6xl px-6 pt-16 pb-24">
+    <p class="label-mono mb-4">About</p>
+
+    <div class="grid md:grid-cols-[280px_1fr] gap-12 md:gap-16">
+      <div>
+        <img
+          src="/avatar.jpg"
+          alt={SITE.name}
+          class="w-full aspect-square rounded-2xl object-cover border border-border"
+        />
+
+        <div class="mt-8 space-y-4">
+          <div>
+            <p class="label-mono">Current location</p>
+            <p class="text-ink mt-1">{SITE.location}</p>
+          </div>
+          <div>
+            <p class="label-mono">Status</p>
+            <p class="text-ink mt-1">{SITE.relocation}</p>
+          </div>
+          <div>
+            <p class="label-mono">Email</p>
+            <a href={`mailto:${SITE.email}`} class="text-accent mt-1 inline-block hover:text-accent-strong">
+              {SITE.email}
+            </a>
+          </div>
+        </div>
+
+        <Button href={SITE.resumeUrl} variant="secondary" class="mt-8 w-full justify-center" download>
+          ↓ Download CV
+        </Button>
+      </div>
+
+      <div>
+        <h1 class="text-3xl md:text-4xl font-medium tracking-tight max-w-2xl">
+          I build AI systems that hold up outside a notebook.
+        </h1>
+
+        <div class="text-ink-muted mt-6 space-y-4 max-w-2xl leading-relaxed">
+          <p>
+            I'm {SITE.name}, an AI engineer based in {SITE.location}. My background is applied, not academic — I
+            started in AI R&amp;D delivering AI projects for external clients, and now build computer vision and
+            LLM-agent systems inside the operations of a major FMCG company. Most of what I build has already been
+            tested against messy real-world data, field conditions, and non-technical end users.
+          </p>
+          <p>
+            I work across the stack: computer vision models for field audits, LLM agents that sit on top of
+            production databases, and the fullstack apps and automation pipelines that get those models in front of
+            the people who need them. I'm not just prototyping — I care about whether the thing actually ships and
+            holds up.
+          </p>
+          <p>
+            I'm currently looking for AI engineering roles in Malaysia, and open to relocating. I'm not limiting
+            myself to one industry or niche — computer vision, LLM/agentic AI, data automation, or anything else in
+            AI engineering, I'm open to it. I care more about doing real, applied work than staying in one lane.
+          </p>
+        </div>
+
+        <p class="label-mono mt-12 mb-4">Timeline</p>
+        <div class="border-t border-border">
+          <div class="flex flex-col md:flex-row md:items-baseline justify-between py-5 border-b border-border gap-1">
+            <div>
+              <p class="font-medium text-ink">AI Engineer</p>
+              <p class="text-ink-muted text-sm">PT. Wings Surya — Surabaya, Indonesia</p>
+              <p class="text-ink-muted text-sm mt-1 max-w-md">
+                Building computer vision and LLM-agent systems for retail, supply-chain, and warehouse
+                operations — see Selected Work above for specific systems shipped in this role.
+              </p>
+            </div>
+            <p class="label-mono whitespace-nowrap">Sep 2025 — Present</p>
+          </div>
+          <div class="flex flex-col md:flex-row md:items-baseline justify-between py-5 border-b border-border gap-1">
+            <div>
+              <p class="font-medium text-ink">AI Engineer</p>
+              <p class="text-ink-muted text-sm">PT. Visiniaga Mitra Kreasindo</p>
+              <p class="text-ink-muted text-sm mt-1 max-w-md">
+                AI R&amp;D — delivered AI project work for external clients.
+              </p>
+            </div>
+            <p class="label-mono whitespace-nowrap">Jan 2025 — Aug 2025</p>
+          </div>
+          <div class="flex flex-col md:flex-row md:items-baseline justify-between py-5 border-b border-border gap-1">
+            <div>
+              <p class="font-medium text-ink">B.Eng, Informatics Engineering</p>
+              <p class="text-ink-muted text-sm">Universitas Kristen Petra</p>
+            </div>
+            <p class="label-mono whitespace-nowrap">2015 — 2019</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

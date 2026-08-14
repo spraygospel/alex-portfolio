@@ -1,0 +1,18 @@
+---
+interface Props {
+  href?: string;
+  class?: string;
+  interactive?: boolean;
+}
+
+const { href, class: className = "", interactive = Boolean(href) } = Astro.props;
+
+const base = "block rounded-2xl border border-border bg-surface";
+const hover = interactive ? "transition-all hover:border-border-strong hover:-translate-y-0.5" : "";
+const classes = [base, hover, className].join(" ");
+const Tag = href ? "a" : "div";
+---
+
+<Tag class={classes} href={href}>
+  <slot />
+</Tag>

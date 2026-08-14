@@ -1,0 +1,90 @@
+[
+  {
+    "id": "store-01",
+    "label": "Freezer 01",
+    "overallScore": 66.0,
+    "fullnessPct": 100.0,
+    "tidinessPct": 58.3,
+    "completenessPct": 28.3,
+    "uniqueSkuCount": 13,
+    "totalSkuCatalog": 46,
+    "caseSlotBreakdown": { "case_full_tidy": 7, "case_full_untidy": 5, "no_case": 1 }
+  },
+  {
+    "id": "store-02",
+    "label": "Freezer 02",
+    "overallScore": 75.4,
+    "fullnessPct": 86.4,
+    "tidinessPct": 81.8,
+    "completenessPct": 54.3,
+    "uniqueSkuCount": 25,
+    "totalSkuCatalog": 46,
+    "caseSlotBreakdown": { "case_full_tidy": 6, "case_full_untidy": 2, "case_partial_tidy": 3 }
+  },
+  {
+    "id": "store-03",
+    "label": "Freezer 03",
+    "overallScore": 76.5,
+    "fullnessPct": 100.0,
+    "tidinessPct": 88.9,
+    "completenessPct": 32.6,
+    "uniqueSkuCount": 15,
+    "totalSkuCatalog": 46,
+    "caseSlotBreakdown": { "case_full_tidy": 8, "case_full_untidy": 1, "frost": 1 }
+  },
+  {
+    "id": "store-04",
+    "label": "Freezer 04",
+    "overallScore": 79.1,
+    "fullnessPct": 100.0,
+    "tidinessPct": 100.0,
+    "completenessPct": 30.4,
+    "uniqueSkuCount": 14,
+    "totalSkuCatalog": 46,
+    "caseSlotBreakdown": { "case_full_tidy": 9 }
+  },
+  {
+    "id": "store-05",
+    "label": "Freezer 05",
+    "overallScore": 62.1,
+    "fullnessPct": 79.2,
+    "tidinessPct": 66.7,
+    "completenessPct": 34.8,
+    "uniqueSkuCount": 16,
+    "totalSkuCatalog": 46,
+    "caseSlotBreakdown": { "case_full_tidy": 5, "case_full_untidy": 2, "case_partial_tidy": 3, "case_partial_untidy": 2 }
+  },
+  {
+    "id": "store-06",
+    "label": "Freezer 06",
+    "overallScore": 65.7,
+    "fullnessPct": 96.2,
+    "tidinessPct": 53.8,
+    "completenessPct": 37.0,
+    "uniqueSkuCount": 17,
+    "totalSkuCatalog": 46,
+    "caseSlotBreakdown": { "case_full_tidy": 7, "case_full_untidy": 5, "case_partial_untidy": 1 }
+  },
+  {
+    "id": "store-07",
+    "label": "Freezer 07",
+    "overallScore": 45.6,
+    "fullnessPct": 60.0,
+    "tidinessPct": 54.5,
+    "completenessPct": 17.4,
+    "uniqueSkuCount": 8,
+    "totalSkuCatalog": 46,
+    "caseSlotBreakdown": { "case_empty": 4, "case_full_tidy": 3, "case_full_untidy": 4, "case_partial_tidy": 3, "case_partial_untidy": 1 }
+  },
+  {
+    "id": "store-08",
+    "label": "Freezer 08",
+    "overallScore": 79.1,
+    "fullnessPct": 100.0,
+    "tidinessPct": 100.0,
+    "completenessPct": 30.4,
+    "uniqueSkuCount": 14,
+    "totalSkuCatalog": 46,
+    "caseSlotBreakdown": { "case_full_tidy": 6 }
+  }
+]

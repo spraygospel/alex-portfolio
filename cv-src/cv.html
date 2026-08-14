@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Alex Christopher — CV</title>
+<style>
+  @page { size: A4; margin: 12mm 18mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: Arial, Helvetica, "Liberation Sans", sans-serif;
+    color: #1a1a1a;
+    font-size: 9.4pt;
+    line-height: 1.32;
+    margin: 0;
+  }
+  h1 { font-size: 18pt; font-weight: 700; margin: 0 0 2pt 0; letter-spacing: -0.2pt; }
+  .role { font-size: 10.2pt; color: #333; margin: 0 0 5pt 0; }
+  .contact { font-size: 8.5pt; color: #444; margin: 0 0 10pt 0; }
+  .contact span.ph { color: #999; }
+  .contact .sep { color: #bbb; margin: 0 4pt; }
+
+  h2 {
+    font-size: 8.8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8pt;
+    color: #111;
+    border-bottom: 1pt solid #111;
+    padding-bottom: 1.5pt;
+    margin: 7pt 0 4pt 0;
+  }
+  h2:first-of-type { margin-top: 6pt; }
+
+  .summary { margin: 0 0 2pt 0; color: #222; }
+
+  .entry { margin-bottom: 5pt; }
+  .entry:last-child { margin-bottom: 0; }
+  .entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8pt;
+  }
+  .entry-title { font-weight: 700; font-size: 9.8pt; }
+  .entry-sub { font-size: 9pt; color: #333; font-style: italic; }
+  .entry-date { font-size: 8.6pt; color: #555; white-space: nowrap; }
+  .entry-body { margin: 2pt 0 0 0; color: #222; }
+  .entry-body ul { margin: 2pt 0 0 0; padding-left: 12pt; }
+  .entry-body li { margin-bottom: 1.5pt; }
+  .placeholder { color: #999; font-style: italic; }
+
+  .stack { font-size: 8.4pt; color: #666; margin-top: 1pt; }
+  .stack b { color: #444; font-weight: 600; }
+
+  .skills-grid { display: grid; grid-template-columns: 118pt 1fr; row-gap: 3pt; column-gap: 8pt; }
+  .skills-grid .cat { font-weight: 700; font-size: 8.9pt; color: #111; }
+  .skills-grid .items { font-size: 8.9pt; color: #222; }
+
+  .tag-primary {
+    display: inline-block;
+    font-size: 7.3pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4pt;
+    color: #fff;
+    background: #2f5d50;
+    border-radius: 3pt;
+    padding: 1.2pt 5pt;
+    margin-left: 6pt;
+    vertical-align: middle;
+  }
+</style>
+</head>
+<body>
+
+  <h1>Alex Christopher</h1>
+  <p class="role">AI Engineer — Computer Vision &amp; Data Automation</p>
+  <p class="contact">
+    <span class="ph">alex.christopher97@gmail.com</span><span class="sep">·</span>Surabaya,
+    Indonesia<span class="sep">·</span>linkedin.com/in/alex-christopher97<span class="sep">·</span><span class="ph">[Portfolio
+    URL]</span><span class="sep">·</span>Open to relocate to Malaysia (EP-eligible)
+  </p>
+
+  <h2>Summary</h2>
+  <p class="summary">
+    AI engineer with production experience building computer vision and LLM-agent systems for FMCG and manufacturing
+    operations. Ships end to end — from model to a tool non-technical teams actually use — across retail field
+    audits, warehouse monitoring, and natural-language interfaces over live business data. Open to relocating to
+    Malaysia.
+  </p>
+
+  <h2>Experience</h2>
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">AI Engineer — PT. Wings Surya</span>
+      <span class="entry-date">Sep 2025 – Present</span>
+    </div>
+    <div class="entry-sub">Surabaya, Indonesia</div>
+    <div class="entry-body">
+      Building computer vision and LLM-agent systems for retail, supply-chain, and warehouse operations — see
+      Selected Projects below for specific systems shipped in this role.
+    </div>
+  </div>
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">AI Engineer — PT. Visiniaga Mitra Kreasindo</span>
+      <span class="entry-date">Jan 2025 – Aug 2025</span>
+    </div>
+    <div class="entry-body">
+      AI R&amp;D — delivered AI project work for external clients.
+    </div>
+  </div>
+
+  <h2>Selected Projects</h2>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">Agentic AI for ERP — Telegram Bot, Text-to-SQL<span class="tag-primary">Featured</span></span>
+    </div>
+    <div class="entry-body">
+      Built an LLM agent that turns plain-language questions into safe, read-only SQL against a live ERP database,
+      reasons over the result, and replies with numbers and a generated chart — extended to query across AR, AP,
+      Sales, Purchasing, Logistics, and Inventory modules in one chat.
+    </div>
+    <div class="stack"><b>Stack:</b> LLM Agent, Text-to-SQL, Python, SQL, Chart Rendering, Telegram Bot API</div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">Computer Vision KPI Scoring — YOLO Planogram Compliance<span class="tag-primary">Featured</span></span>
+    </div>
+    <div class="entry-body">
+      Trained a YOLOv11 model that scores freezer planogram compliance — fullness, tidiness, SKU completeness — from
+      a single photo, cutting a 5–7 minute manual store walk-through down to a ~15-second automated check.
+    </div>
+    <div class="stack"><b>Stack:</b> YOLOv11, Computer Vision, Python, OpenCV, KPI Scoring</div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">Real-Time Pallet Fullness Detection — Warehouse CCTV</span>
+    </div>
+    <div class="entry-body">
+      Deployed a YOLO model on an existing CCTV feed to classify pallets as full or not-full in real time and alarm
+      before an incomplete pallet crosses into warehouse stock — catching shipment-count discrepancies before they
+      reach a customer.
+    </div>
+    <div class="stack"><b>Stack:</b> YOLO, Computer Vision, Real-time Detection, RTSP/CCTV, Python</div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">Packaging Design Diff Tool — Computer Vision QA</span>
+    </div>
+    <div class="entry-body">
+      Built an OpenCV pipeline that aligns and pixel-compares two packaging design revisions and flags exactly what
+      changed, catching edits a manual side-by-side review misses across thousands of SKU revisions a year.
+    </div>
+    <div class="stack"><b>Stack:</b> Computer Vision, OpenCV, Image Diffing, Python</div>
+  </div>
+
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">New Product Demand Forecasting Automation — BigQuery/SAP → Sheets + AI Bot</span>
+    </div>
+    <div class="entry-body">
+      Automated a BigQuery (SAP)-to-Google Sheets pipeline that fills in new-product demand forecasts using the
+      Supply Chain team's own formula, paired with an AI bot for natural-language analysis across 40+ concurrent
+      product launches — replacing manual Excel updates.
+    </div>
+    <div class="stack"><b>Stack:</b> Python, BigQuery, Google Sheets API, LLM Agent, SAP</div>
+  </div>
+
+  <h2>Skills</h2>
+  <div class="skills-grid">
+    <div class="cat">AI / LLM</div><div class="items">LLM Agents, Text-to-SQL, Prompt Engineering, RAG, OpenClaw, Hermes Agent</div>
+    <div class="cat">Computer Vision</div><div class="items">YOLOv11, OpenCV, Object Detection, Image Diffing, CVAT</div>
+    <div class="cat">Data Engineering</div><div class="items">BigQuery, SQL, ETL Automation, Google Sheets/Excel API</div>
+    <div class="cat">Fullstack</div><div class="items">Python, TypeScript, React, REST APIs, C#</div>
+    <div class="cat">Tools &amp; Infra</div><div class="items">Docker, Git, Vercel, Linux, Claude Code, ChatGPT Codex</div>
+  </div>
+
+  <h2>Education</h2>
+  <div class="entry">
+    <div class="entry-head">
+      <span class="entry-title">B.Eng, Informatics Engineering — Universitas Kristen Petra</span>
+      <span class="entry-date">2015 – 2019</span>
+    </div>
+  </div>
+
+</body>
+</html>

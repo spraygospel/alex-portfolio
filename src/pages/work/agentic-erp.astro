@@ -1,0 +1,300 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Tag from "../../components/ui/Tag.astro";
+
+const stack = ["LLM Agent", "Text-to-SQL", "Python", "SQL", "Chart Rendering", "Telegram Bot API"];
+---
+
+<BaseLayout
+  title="I Built a Chatbot That Found Our Hidden Money-Losing Products"
+  description="A Telegram-based AI agent that lets non-technical teams query a live ERP database in plain language and get charts back instantly."
+>
+  <article class="mx-auto max-w-3xl px-6 pt-16 pb-28">
+    <p class="label-mono mb-4">Case study</p>
+    <h1 class="text-3xl md:text-5xl font-medium tracking-tight">I Built a Chatbot That Found Our Hidden Money-Losing Products</h1>
+
+    <p class="text-lg text-ink-muted mt-6 leading-relaxed">
+      One of my manager's businesses runs its operations on an ERP system that only the data/finance team could
+      really query — everyone else waited on a report. I built a Telegram-based AI agent connected to that ERP
+      database: ask a question in plain language, and it writes a safe, read-only SQL query, reasons about the
+      result, and answers back with numbers and a chart in the same chat.
+    </p>
+
+    <div class="flex flex-wrap gap-1.5 mt-6">
+      {stack.map((t) => <Tag>{t}</Tag>)}
+    </div>
+
+    <!-- Video demo -->
+    <div class="mt-12 rounded-2xl overflow-hidden border border-border bg-surface">
+      <video
+        class="w-full h-auto block"
+        poster="/video/agentic-erp-poster.jpg"
+        controls
+        preload="none"
+        playsinline
+      >
+        <source src="/video/agentic-erp-demo.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <p class="text-xs text-ink-faint mt-2">
+      Screen recording of the actual agent, live: from "which categories are most profitable" to spotting a hidden
+      loss-maker to a revenue-vs-margin scatter plot — three questions, one conversation.
+    </p>
+
+    <p class="label-mono mt-16 mb-6">Business impact</p>
+
+    <div class="grid grid-cols-3 gap-3">
+      <div class="p-4 rounded-xl border border-border bg-surface">
+        <p class="font-mono text-xl md:text-2xl font-medium text-accent">Minutes</p>
+        <p class="label-mono mt-1">Not days, to an answer</p>
+      </div>
+      <div class="p-4 rounded-xl border border-border bg-surface">
+        <p class="font-mono text-xl md:text-2xl font-medium text-accent">Zero SQL</p>
+        <p class="label-mono mt-1">Required from the asker</p>
+      </div>
+      <div class="p-4 rounded-xl border border-border bg-surface">
+        <p class="font-mono text-xl md:text-2xl font-medium text-ink">No new tool</p>
+        <p class="label-mono mt-1">Runs in existing chat</p>
+      </div>
+    </div>
+
+    <p class="text-ink-muted mt-8 leading-relaxed">
+      The video isn't a canned query — it's three real, follow-up questions in one conversation, the kind a
+      commercial or finance lead actually asks once they see the first answer:
+    </p>
+
+    <div class="mt-4 space-y-3">
+      <div class="flex gap-4 p-4 rounded-xl border border-border border-l-4 border-l-accent bg-surface">
+        <div class="shrink-0 w-9 h-9 rounded-lg bg-accent-soft text-accent flex items-center justify-center">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="12" width="5" height="9" />
+            <rect x="9.5" y="7" width="5" height="14" />
+            <rect x="16" y="3" width="5" height="18" />
+          </svg>
+        </div>
+        <p class="text-ink-muted leading-relaxed">
+          <span class="text-ink font-medium">See the full margin picture instantly.</span> Category-level gross
+          profit and margin %, on demand — no waiting on finance to compile a report before a decision gets made.
+        </p>
+      </div>
+      <div class="flex gap-4 p-4 rounded-xl border border-border border-l-4 border-l-warn bg-surface">
+        <div class="shrink-0 w-9 h-9 rounded-lg bg-warn-soft text-warn flex items-center justify-center">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3 2 20h20L12 3Z" />
+            <line x1="12" y1="10" x2="12" y2="14.5" />
+            <circle cx="12" cy="17.3" r="0.6" fill="currentColor" stroke="none" />
+          </svg>
+        </div>
+        <p class="text-ink-muted leading-relaxed">
+          <span class="text-ink font-medium">Catch hidden loss-makers before they bleed further.</span> A follow-up
+          question surfaces products that look like top sellers by revenue but carry thin or negative margin — the
+          kind of problem that usually hides in a spreadsheet until quarter-end close.
+        </p>
+      </div>
+      <div class="flex gap-4 p-4 rounded-xl border border-border border-l-4 border-l-accent bg-surface">
+        <div class="shrink-0 w-9 h-9 rounded-lg bg-accent-soft text-accent flex items-center justify-center">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="6" cy="17" r="2" />
+            <circle cx="12.5" cy="8" r="2.4" />
+            <circle cx="19" cy="13.5" r="1.7" />
+          </svg>
+        </div>
+        <p class="text-ink-muted leading-relaxed">
+          <span class="text-ink font-medium">Turn the finding into a decision-ready visual.</span> One more question
+          renders a revenue-vs-margin scatter plot, instantly separating stars, cash cows, and quiet loss-makers —
+          ready to drop into a leadership deck, not just a raw table.
+        </p>
+      </div>
+    </div>
+
+    <p class="label-mono mt-16 mb-6">One chat, the whole ERP</p>
+
+    <p class="text-ink-muted leading-relaxed">
+      The video above is just <span class="text-ink font-medium">one conversation</span> — gross profit by product.
+      That's not the ceiling, it's one thread. The same agent is wired into every module the ERP has:
+      <span class="text-ink font-medium">AR, AP, Sales, Purchasing, Logistics, Inventory</span> — all of it, answered
+      in the same chat window.
+    </p>
+    <p class="text-ink-muted leading-relaxed mt-4">
+      That matters because most ERP reports live behind an export button: open Excel, wait for forty columns to
+      load, pivot a table, hope you didn't miss a filter — then explain it to whoever actually asked. A business
+      owner doesn't have time for that between meetings, so the report waits, or someone else reads it for them.
+      With this agent, <span class="text-ink font-medium">that whole step disappears.</span> Ask a question, in any
+      module, and it reads the underlying report the way an analyst would — then hands back the answer, not the
+      spreadsheet.
+    </p>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-6">
+      <div class="p-4 rounded-xl border border-border bg-surface">
+        <div class="w-9 h-9 rounded-lg bg-accent-soft text-accent flex items-center justify-center mb-3">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 13v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6" />
+            <polyline points="8 9 12 13 16 9" />
+            <line x1="12" y1="3" x2="12" y2="13" />
+          </svg>
+        </div>
+        <p class="font-medium text-ink text-sm">Accounts Receivable</p>
+        <p class="text-ink-muted text-xs mt-1 leading-snug">"Who's overdue past 60 days?"</p>
+      </div>
+      <div class="p-4 rounded-xl border border-border bg-surface">
+        <div class="w-9 h-9 rounded-lg bg-accent-soft text-accent flex items-center justify-center mb-3">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 13v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-6" />
+            <polyline points="8 7 12 3 16 7" />
+            <line x1="12" y1="3" x2="12" y2="15" />
+          </svg>
+        </div>
+        <p class="font-medium text-ink text-sm">Accounts Payable</p>
+        <p class="text-ink-muted text-xs mt-1 leading-snug">"What do we owe suppliers this week?"</p>
+      </div>
+      <div class="p-4 rounded-xl border border-border bg-surface">
+        <div class="w-9 h-9 rounded-lg bg-accent-soft text-accent flex items-center justify-center mb-3">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="20" r="1.3" />
+            <circle cx="18" cy="20" r="1.3" />
+            <path d="M2.5 3h2l2.6 12.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L21 7H6" />
+          </svg>
+        </div>
+        <p class="font-medium text-ink text-sm">Sales</p>
+        <p class="text-ink-muted text-xs mt-1 leading-snug">"Which region is behind target?"</p>
+      </div>
+      <div class="p-4 rounded-xl border border-border bg-surface">
+        <div class="w-9 h-9 rounded-lg bg-accent-soft text-accent flex items-center justify-center mb-3">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="5.5" y="4" width="13" height="17" rx="2" />
+            <rect x="9" y="2.3" width="6" height="3" rx="1" />
+            <line x1="8.5" y1="10.5" x2="15.5" y2="10.5" />
+            <line x1="8.5" y1="14.5" x2="15.5" y2="14.5" />
+          </svg>
+        </div>
+        <p class="font-medium text-ink text-sm">Purchasing</p>
+        <p class="text-ink-muted text-xs mt-1 leading-snug">"Which POs are late from the supplier?"</p>
+      </div>
+      <div class="p-4 rounded-xl border border-border bg-surface">
+        <div class="w-9 h-9 rounded-lg bg-accent-soft text-accent flex items-center justify-center mb-3">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="8" width="11" height="8" rx="1" />
+            <path d="M13 11h4l3.5 3v2H13z" />
+            <circle cx="6.5" cy="18.3" r="1.6" />
+            <circle cx="16.5" cy="18.3" r="1.6" />
+          </svg>
+        </div>
+        <p class="font-medium text-ink text-sm">Logistics</p>
+        <p class="text-ink-muted text-xs mt-1 leading-snug">"Which shipments are delayed right now?"</p>
+      </div>
+      <div class="p-4 rounded-xl border border-border bg-surface">
+        <div class="w-9 h-9 rounded-lg bg-accent-soft text-accent flex items-center justify-center mb-3">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 8v8l-9 5-9-5V8l9-5 9 5Z" />
+            <path d="M3 8l9 5 9-5" />
+            <line x1="12" y1="13" x2="12" y2="21" />
+          </svg>
+        </div>
+        <p class="font-medium text-ink text-sm">Inventory</p>
+        <p class="text-ink-muted text-xs mt-1 leading-snug">"Which SKUs are about to run out?"</p>
+      </div>
+    </div>
+
+    <div class="mt-6 grid sm:grid-cols-2 gap-3">
+      <div class="p-4 rounded-xl border border-border bg-surface">
+        <p class="label-mono text-ink-faint mb-2">Before</p>
+        <p class="text-ink-muted text-sm leading-relaxed">
+          Open the ERP, export to Excel, filter, pivot, cross-reference another sheet — then explain it to whoever
+          actually asked.
+        </p>
+      </div>
+      <div class="p-4 rounded-xl border border-l-4 border-l-accent border-border bg-surface">
+        <p class="label-mono text-accent mb-2">After</p>
+        <p class="text-ink-muted text-sm leading-relaxed">
+          Type the question into the same Telegram chat everyone already has open. Get the answer — and the chart
+          — back in seconds.
+        </p>
+      </div>
+    </div>
+
+    <details class="mt-16 group">
+      <summary class="label-mono cursor-pointer list-none flex items-center gap-2">
+        <span class="inline-block transition-transform group-open:rotate-90">›</span>
+        How it works (technical)
+      </summary>
+      <div class="mt-6">
+        <svg viewBox="0 0 1000 200" class="w-full h-auto" role="img" aria-label="Architecture: user question flows through the LLM agent, which queries the ERP database read-only, then formats the result as a chart back to the user">
+          <g class="stroke-ink-faint" stroke-width="2">
+            <line x1="180" y1="100" x2="264" y2="100" />
+            <line x1="470" y1="100" x2="554" y2="100" />
+            <line x1="760" y1="100" x2="844" y2="100" />
+          </g>
+          <g class="fill-ink-faint">
+            <polygon points="264,93 264,107 278,100" />
+            <polygon points="554,93 554,107 568,100" />
+            <polygon points="844,93 844,107 858,100" />
+          </g>
+
+          <!-- node 1: user -->
+          <g>
+            <rect x="20" y="60" width="160" height="80" rx="14" class="fill-surface stroke-border" stroke-width="1.5" />
+            <circle cx="70" cy="100" r="18" class="fill-accent" opacity="0.85" />
+            <text x="100" y="94" font-size="13" font-weight="600" class="fill-ink" font-family="ui-sans-serif, system-ui, sans-serif">You ask</text>
+            <text x="100" y="112" font-size="11" class="fill-ink-muted" font-family="ui-sans-serif, system-ui, sans-serif">plain language</text>
+          </g>
+
+          <!-- node 2: LLM agent -->
+          <g>
+            <rect x="270" y="50" width="200" height="100" rx="14" class="fill-surface stroke-border" stroke-width="1.5" />
+            <circle cx="330" cy="100" r="20" class="fill-accent" />
+            <circle cx="330" cy="100" r="7" class="fill-surface" />
+            <text x="365" y="94" font-size="13" font-weight="600" class="fill-ink" font-family="ui-sans-serif, system-ui, sans-serif">LLM agent</text>
+            <text x="365" y="112" font-size="11" class="fill-ink-muted" font-family="ui-sans-serif, system-ui, sans-serif">writes SQL</text>
+          </g>
+
+          <!-- node 3: ERP DB -->
+          <g>
+            <ellipse cx="610" cy="72" rx="50" ry="16" class="fill-accent" opacity="0.85" />
+            <rect x="560" y="72" width="100" height="56" class="fill-accent" opacity="0.75" />
+            <ellipse cx="610" cy="128" rx="50" ry="16" class="fill-accent-strong" />
+            <text x="610" y="165" font-size="12" text-anchor="middle" class="fill-ink-muted" font-family="ui-monospace, monospace">ERP DB (read-only)</text>
+          </g>
+
+          <!-- node 4: chart back -->
+          <g>
+            <rect x="850" y="50" width="150" height="100" rx="14" class="fill-surface stroke-border" stroke-width="1.5" />
+            <rect x="875" y="105" width="14" height="25" class="fill-accent" opacity="0.5" />
+            <rect x="898" y="90" width="14" height="40" class="fill-accent" opacity="0.75" />
+            <rect x="921" y="75" width="14" height="55" class="fill-accent" />
+            <text x="925" y="65" font-size="13" font-weight="600" text-anchor="middle" class="fill-ink" font-family="ui-sans-serif, system-ui, sans-serif">Answer</text>
+          </g>
+        </svg>
+        <p class="text-sm text-ink-muted mt-4 leading-relaxed">
+          The agent only ever runs read-only, parameterized queries against a scoped set of views — it can't write,
+          and it can't touch tables outside what it's been given access to. Every response is grounded in the actual
+          query result, not a free-form guess, which is what makes it safe to hand to non-technical users.
+        </p>
+        <div class="text-ink-muted space-y-4 leading-relaxed mt-6 text-sm">
+          <p>
+            The hardest part wasn't generating SQL — it was generating <em>correct</em> SQL against a real ERP
+            schema, where naive queries silently double-count. For example, the sales-invoice table is a rolling
+            ledger, so a query that sums it directly across periods can overcount. The agent has to reason about
+            snapshot periods and stated caveats, not just table joins, and explain that reasoning back to the user
+            (visible in the video as the "Caveat" and "Scope" notes before the numbers).
+          </p>
+          <p>
+            On the output side, the agent decides whether a question is best answered as a table, a single number,
+            or a chart — and when it picks a chart, it renders one and sends the image back into the same chat
+            thread, so the whole interaction stays in one place instead of bouncing the user out to a dashboard.
+          </p>
+        </div>
+      </div>
+    </details>
+
+    <!-- Data viz showcase -->
+    <p class="label-mono mt-16 mb-6">Sample outputs</p>
+    <div class="grid sm:grid-cols-2 gap-4 items-start">
+      <div class="rounded-xl overflow-hidden border border-border bg-surface">
+        <img src="/video/agentic-erp-table.jpg" alt="Gross profit by category table output from the agent" class="w-full h-auto" loading="lazy" />
+      </div>
+      <div class="rounded-xl overflow-hidden border border-border bg-surface">
+        <img src="/video/agentic-erp-chart.jpg" alt="Scatter plot from the agent showing revenue vs. gross margin, flagging hidden loss-making products" class="w-full h-auto" loading="lazy" />
+      </div>
+    </div>
+  </article>
+</BaseLayout>

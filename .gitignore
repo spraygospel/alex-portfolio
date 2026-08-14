@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+# NOTE: bun.lock is intentionally NOT ignored — Vercel needs it to auto-detect Bun
+
+# Build output
+dist/
+.astro/
+.vercel/
+
+# Env
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+*.log
+
+# Claude Code local state (not part of the site)
+.claude/
+
+# Heavy raw source assets — only compressed derivatives in /public are shipped
+/assets/

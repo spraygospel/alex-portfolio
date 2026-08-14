@@ -1,0 +1,29 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg" font-family="ui-sans-serif, system-ui, sans-serif">
+  <rect width="800" height="600" fill="#eef1f0" />
+  <!-- frame A -->
+  <rect x="70" y="150" width="280" height="300" rx="12" fill="#ffffff" stroke="#c9c6bc" stroke-width="2" />
+  <circle cx="150" cy="240" r="34" fill="#0f6b5c" opacity="0.85" />
+  <rect x="110" y="320" width="220" height="16" rx="8" fill="#dbe4e3" />
+  <rect x="110" y="350" width="160" height="16" rx="8" fill="#dbe4e3" />
+  <text x="210" y="130" font-size="16" fill="#17181a" text-anchor="middle" font-family="ui-monospace, monospace">before.jpg</text>
+
+  <!-- arrow -->
+  <g stroke="#8a8d92" stroke-width="3" fill="none">
+    <line x1="368" y1="300" x2="428" y2="300" />
+    <path d="M418 290 L432 300 L418 310" />
+  </g>
+  <text x="398" y="270" font-size="13" fill="#5b5e63" text-anchor="middle" font-family="ui-monospace, monospace">diff()</text>
+
+  <!-- frame B -->
+  <rect x="450" y="150" width="280" height="300" rx="12" fill="#ffffff" stroke="#c9c6bc" stroke-width="2" />
+  <circle cx="530" cy="240" r="34" fill="#0f6b5c" opacity="0.85" />
+  <rect x="490" y="320" width="220" height="16" rx="8" fill="#dbe4e3" />
+  <rect x="490" y="350" width="160" height="16" rx="8" fill="#dbe4e3" />
+  <ellipse cx="640" cy="360" rx="30" ry="24" fill="#b3551f" opacity="0.85" />
+  <text x="590" y="130" font-size="16" fill="#17181a" text-anchor="middle" font-family="ui-monospace, monospace">after.jpg</text>
+
+  <!-- bbox highlight on the diffed region -->
+  <rect x="602" y="328" width="76" height="64" rx="6" fill="none" stroke="#b3551f" stroke-width="3" />
+  <rect x="602" y="304" width="88" height="20" rx="4" fill="#b3551f" />
+  <text x="610" y="318.5" font-size="11.5" font-weight="600" fill="#ffffff" font-family="ui-monospace, monospace">changed</text>
+</svg>
