@@ -7,7 +7,7 @@ export const SITE = {
   location: "Surabaya, Indonesia",
   relocation: "Open to relocate to Malaysia · EP-eligible",
   social: {
-    github: "https://github.com/",
+    github: "https://github.com/spraygospel",
     linkedin: "https://www.linkedin.com/in/alex-christopher97/",
   },
   resumeUrl: "/cv/resume.pdf",
