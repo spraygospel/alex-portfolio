@@ -4,36 +4,36 @@
 <meta charset="utf-8" />
 <title>Alex Christopher — CV</title>
 <style>
-  @page { size: A4; margin: 12mm 18mm; }
+  @page { size: A4; margin: 16mm 18mm; }
   * { box-sizing: border-box; }
   body {
     font-family: Arial, Helvetica, "Liberation Sans", sans-serif;
     color: #1a1a1a;
-    font-size: 9.4pt;
-    line-height: 1.32;
+    font-size: 10pt;
+    line-height: 1.4;
     margin: 0;
   }
-  h1 { font-size: 18pt; font-weight: 700; margin: 0 0 2pt 0; letter-spacing: -0.2pt; }
-  .role { font-size: 10.2pt; color: #333; margin: 0 0 5pt 0; }
-  .contact { font-size: 8.5pt; color: #444; margin: 0 0 10pt 0; }
+  h1 { font-size: 20pt; font-weight: 700; margin: 0 0 2pt 0; letter-spacing: -0.2pt; }
+  .role { font-size: 11pt; color: #333; margin: 0 0 6pt 0; }
+  .contact { font-size: 8.8pt; color: #444; margin: 0 0 14pt 0; }
   .contact span.ph { color: #999; }
   .contact .sep { color: #bbb; margin: 0 4pt; }
 
   h2 {
-    font-size: 8.8pt;
+    font-size: 9.5pt;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.8pt;
     color: #111;
     border-bottom: 1pt solid #111;
-    padding-bottom: 1.5pt;
-    margin: 7pt 0 4pt 0;
+    padding-bottom: 2pt;
+    margin: 11pt 0 6pt 0;
   }
-  h2:first-of-type { margin-top: 6pt; }
+  h2:first-of-type { margin-top: 8pt; }
 
   .summary { margin: 0 0 2pt 0; color: #222; }
 
-  .entry { margin-bottom: 5pt; }
+  .entry { margin-bottom: 8pt; }
   .entry:last-child { margin-bottom: 0; }
   .entry-head {
     display: flex;
@@ -41,31 +41,34 @@
     align-items: baseline;
     gap: 8pt;
   }
-  .entry-title { font-weight: 700; font-size: 9.8pt; }
-  .entry-sub { font-size: 9pt; color: #333; font-style: italic; }
-  .entry-date { font-size: 8.6pt; color: #555; white-space: nowrap; }
-  .entry-body { margin: 2pt 0 0 0; color: #222; }
-  .entry-body ul { margin: 2pt 0 0 0; padding-left: 12pt; }
-  .entry-body li { margin-bottom: 1.5pt; }
-  .placeholder { color: #999; font-style: italic; }
+  .entry-title { font-weight: 700; font-size: 10.3pt; }
+  .entry-sub { font-size: 9.3pt; color: #333; font-style: italic; margin-top: 1pt; }
+  .entry-date { font-size: 8.9pt; color: #555; white-space: nowrap; }
+  .entry-body { margin: 3pt 0 0 0; color: #222; }
+  .entry-body ul { margin: 3pt 0 0 0; padding-left: 13pt; }
+  .entry-body li { margin-bottom: 2pt; }
+  .entry-body p { margin: 0 0 3pt 0; }
+  .entry-body p:last-child { margin-bottom: 0; }
+  .impact { color: #1a1a1a; }
+  .impact b { color: #2f5d50; }
 
-  .stack { font-size: 8.4pt; color: #666; margin-top: 1pt; }
+  .stack { font-size: 8.7pt; color: #666; margin-top: 3pt; }
   .stack b { color: #444; font-weight: 600; }
 
-  .skills-grid { display: grid; grid-template-columns: 118pt 1fr; row-gap: 3pt; column-gap: 8pt; }
-  .skills-grid .cat { font-weight: 700; font-size: 8.9pt; color: #111; }
-  .skills-grid .items { font-size: 8.9pt; color: #222; }
+  .skills-grid { display: grid; grid-template-columns: 118pt 1fr; row-gap: 4pt; column-gap: 8pt; }
+  .skills-grid .cat { font-weight: 700; font-size: 9.2pt; color: #111; }
+  .skills-grid .items { font-size: 9.2pt; color: #222; }
 
   .tag-primary {
     display: inline-block;
-    font-size: 7.3pt;
+    font-size: 7.5pt;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.4pt;
     color: #fff;
     background: #2f5d50;
     border-radius: 3pt;
-    padding: 1.2pt 5pt;
+    padding: 1.5pt 5.5pt;
     margin-left: 6pt;
     vertical-align: middle;
   }
@@ -82,10 +85,13 @@
 
   <h2>Summary</h2>
   <p class="summary">
-    AI engineer with production experience building computer vision and LLM-agent systems for FMCG and manufacturing
-    operations. Ships end to end — from model to a tool non-technical teams actually use — across retail field
-    audits, warehouse monitoring, and natural-language interfaces over live business data. Open to relocating to
-    Malaysia.
+    AI engineer with production experience building computer vision and LLM-agent systems that ship into real
+    operations, not just notebooks. Over the past year and a half I've taken projects from a manual, error-prone
+    process to an automated system a non-technical team relies on daily — cutting a multi-minute manual check down
+    to seconds, catching a compliance risk before it reaches print or a customer, and giving business teams a way to
+    ask their own data a question in plain language instead of waiting on a report. I measure my work by the
+    business outcome it produces, not just the model behind it — every project below is described the same way:
+    what the problem cost before, what I built, and what changed after. Open to relocating to Malaysia.
   </p>
 
   <h2>Experience</h2>
@@ -96,8 +102,17 @@
     </div>
     <div class="entry-sub">Surabaya, Indonesia</div>
     <div class="entry-body">
-      Building computer vision and LLM-agent systems for retail, supply-chain, and warehouse operations — see
-      Selected Projects below for specific systems shipped in this role.
+      <ul>
+        <li>Design and ship computer vision and LLM-agent systems end to end — from model and pipeline design
+        through to a tool that non-technical retail, supply-chain, and warehouse teams use every day. Five of these
+        systems are detailed under Selected Projects below, with the problem they solved and the measured impact.</li>
+        <li>Work directly with business stakeholders (sales, SCM, trade-marketing) to translate a manual,
+        spreadsheet- or eyeball-driven process into an automated one — starting from how the team actually works
+        today, not just the technical spec.</li>
+        <li>Keep deployed systems cheap to run and adopt: a single CPU server, the warehouse's existing CCTV feed, and
+        the team's existing Google Sheets workflow, rather than new hardware, GPU clusters, or a tool nobody asked
+        for.</li>
+      </ul>
     </div>
   </div>
   <div class="entry">
@@ -106,7 +121,8 @@
       <span class="entry-date">Jan 2025 – Aug 2025</span>
     </div>
     <div class="entry-body">
-      AI R&amp;D — delivered AI project work for external clients.
+      AI R&amp;D — scoped, built, and delivered AI project work for external clients across different requirements
+      and problem domains.
     </div>
   </div>
 
@@ -117,9 +133,20 @@
       <span class="entry-title">Agentic AI for ERP — Telegram Bot, Text-to-SQL<span class="tag-primary">Featured</span></span>
     </div>
     <div class="entry-body">
-      Built an LLM agent that turns plain-language questions into safe, read-only SQL against a live ERP database,
-      reasons over the result, and replies with numbers and a generated chart — extended to query across AR, AP,
-      Sales, Purchasing, Logistics, and Inventory modules in one chat.
+      <p>
+        One of the businesses I support runs its operations on an ERP database that only the finance/data team could
+        query directly — everyone else waited on a report. I built a Telegram-based LLM agent that lets anyone ask a
+        business question in plain language: it writes a safe, read-only SQL query, reasons over the result against
+        real business caveats (e.g. avoiding double-counting a rolling sales ledger), and replies with numbers and an
+        auto-generated chart in the same chat — extended to work across AR, AP, Sales, Purchasing, Logistics, and
+        Inventory, not a single-purpose bot.
+      </p>
+      <p class="impact">
+        <b>Impact:</b> turned a multi-day report request into a few minutes of back-and-forth chat. In one real
+        session, a follow-up question surfaced a set of products that looked like top sellers by revenue but were
+        quietly running negative margin — the kind of finding that used to only surface at quarter-end close, if at
+        all.
+      </p>
     </div>
     <div class="stack"><b>Stack:</b> LLM Agent, Text-to-SQL, Python, SQL, Chart Rendering, Telegram Bot API</div>
   </div>
@@ -129,8 +156,19 @@
       <span class="entry-title">Computer Vision KPI Scoring — YOLO Planogram Compliance<span class="tag-primary">Featured</span></span>
     </div>
     <div class="entry-body">
-      Trained a YOLOv11 model that scores freezer planogram compliance — fullness, tidiness, SKU completeness — from
-      a single photo, cutting a 5–7 minute manual store walk-through down to a ~15-second automated check.
+      <p>
+        Sales reps checked freezer planogram compliance by eye, store by store — a 5–7 minute manual walk-through per
+        visit, with no consistent record of what was actually found. I trained a YOLOv11 model that reads a single
+        top-down photo and scores three things — how full the freezer is, how tidy it's arranged, and how much of
+        the SKU catalog is present — derived directly from two detection passes (compartment status, then SKU
+        identification), with no manual review step in between.
+      </p>
+      <p class="impact">
+        <b>Impact:</b> cuts the check to about 15 seconds — roughly 96% faster — running on a single CPU server, no
+        GPU cluster or per-image API cost. At the scale of a national freezer network, that's illustratively worth
+        several reps' worth of time freed every month: redirectable to selling time, or to covering more outlets
+        without adding headcount.
+      </p>
     </div>
     <div class="stack"><b>Stack:</b> YOLOv11, Computer Vision, Python, OpenCV, KPI Scoring</div>
   </div>
@@ -140,9 +178,19 @@
       <span class="entry-title">Real-Time Pallet Fullness Detection — Warehouse CCTV</span>
     </div>
     <div class="entry-body">
-      Deployed a YOLO model on an existing CCTV feed to classify pallets as full or not-full in real time and alarm
-      before an incomplete pallet crosses into warehouse stock — catching shipment-count discrepancies before they
-      reach a customer.
+      <p>
+        Every pallet entering a warehouse is assumed to be full — if an incomplete one gets logged as stock
+        unnoticed, the next stock count comes up short, and if that pallet was tied to a customer order, the
+        shortage becomes a complaint. I deployed a YOLO model on the warehouse's existing CCTV feed, no new camera
+        hardware, that classifies every pallet as full or not-full in real time and tracks it against a virtual
+        boundary line marking the warehouse entrance.
+      </p>
+      <p class="impact">
+        <b>Impact:</b> when an incomplete pallet crosses that line, the system fires an alarm before it's ever
+        counted as stock — catching the exact scenario that turns into a customer complaint (say, 100 boxes ordered,
+        98 shipped) at the cheapest possible point to fix it, without needing a supervisor stationed at the door
+        every shift.
+      </p>
     </div>
     <div class="stack"><b>Stack:</b> YOLO, Computer Vision, Real-time Detection, RTSP/CCTV, Python</div>
   </div>
@@ -152,8 +200,18 @@
       <span class="entry-title">Packaging Design Diff Tool — Computer Vision QA</span>
     </div>
     <div class="entry-body">
-      Built an OpenCV pipeline that aligns and pixel-compares two packaging design revisions and flags exactly what
-      changed, catching edits a manual side-by-side review misses across thousands of SKU revisions a year.
+      <p>
+        Every packaging revision at a company running thousands of SKUs a year needs a human to hold the old proof
+        next to the new one and catch every change — a price tag added, a net weight updated, a ribbon recolored.
+        Miss one and it goes to print. I built an OpenCV pipeline that aligns two design files (correcting for
+        scan/export drift), runs a structural diff tolerant of compression noise, and draws a bounding box around
+        every region that meaningfully changed.
+      </p>
+      <p class="impact">
+        <b>Impact:</b> turns "compare these two images" into "look at these three highlighted spots" — built to
+        catch the kind of change a reviewer's accuracy naturally misses after the twentieth near-identical proof in
+        a row, before a reprint or a wrong number on shelf happens.
+      </p>
     </div>
     <div class="stack"><b>Stack:</b> Computer Vision, OpenCV, Image Diffing, Python</div>
   </div>
@@ -163,9 +221,21 @@
       <span class="entry-title">New Product Demand Forecasting Automation — BigQuery/SAP → Sheets + AI Bot</span>
     </div>
     <div class="entry-body">
-      Automated a BigQuery (SAP)-to-Google Sheets pipeline that fills in new-product demand forecasts using the
-      Supply Chain team's own formula, paired with an AI bot for natural-language analysis across 40+ concurrent
-      product launches — replacing manual Excel updates.
+      <p>
+        With dozens of new products launching every month, the Supply Chain team calculated each one's demand
+        forecast by hand in Excel — pulling data, applying the formula, updating the sheet, every SKU, every month. I
+        automated the pipeline: a script pulls source data from BigQuery (sourced from SAP) and fills a Google Sheet
+        using SCM's own formula, tracking each product through its first two months on shelf against that estimate.
+        On top of that, I connected an AI bot so anyone can ask a natural-language question — e.g. "the 5
+        worst-performing completed products" — and get a filtered, ranked answer instead of scrolling a 40-plus-row
+        sheet.
+      </p>
+      <p class="impact">
+        <b>Impact:</b> removed the manual monthly Excel update entirely and made the calculation consistent — the
+        same formula runs the same way every time, no transcription drift. The bot layer also caught a pattern a
+        quick glance would miss: 28 "completed" products still showing month-2 demand above 100% of estimate,
+        meaning finished status didn't mean repeat demand had actually tapered off.
+      </p>
     </div>
     <div class="stack"><b>Stack:</b> Python, BigQuery, Google Sheets API, LLM Agent, SAP</div>
   </div>
